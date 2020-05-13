@@ -52,7 +52,7 @@ func main() {
 			nx.ConsoleESC("9m")+"Strikethrough "+
 
 			"\n"+
-			nx.ConsoleESC("0m"), i+30)
+			nx.ConsoleESC("0m"), i+30, i+30, i+30, i+30)
 	}
 
 	for nx.AppletMainLoop() {
