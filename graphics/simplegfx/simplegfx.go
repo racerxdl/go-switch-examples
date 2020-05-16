@@ -1,5 +1,3 @@
-// Hello World example
-// Same as https://github.com/switchbrew/switch-examples/tree/master/graphics/printing/hello-world
 package main
 
 import (
@@ -14,11 +12,10 @@ func main() {
 
 	system.SvcOutputDebugString("Making FB")
 	fb, err := window.MakeFramebuffer(1280, 720, 2, graphics.PixelFormatRgba8888)
-	//
+
 	if err != nil {
 		panic(err)
 	}
-	//
 
 	system.SvcOutputDebugString("Making FB Linear")
 	fb.MakeLinear()
@@ -45,13 +42,12 @@ func main() {
 
 		shade := uint8((i * 256) / 60)
 
-		for x := 0; x < 1280; x++ {
-			for y := 0; y < 720; y++ {
-				off := y*img.Stride + x*4
-				img.Pix[off] = shade
-				img.Pix[off+1] = shade
-				img.Pix[off+2] = shade
-				img.Pix[off+3] = 255
+		shade32 := uint32(shade)
+		shade32 = 0xFF<<24 + shade32<<16 + shade32<<8 + shade32
+
+		for y := 0; y < 720; y++ {
+			for x := 0; x < 1280; x++ {
+				img.SetRGBA32(x, y, shade32)
 			}
 		}
 

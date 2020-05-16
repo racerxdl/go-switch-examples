@@ -16,4 +16,4 @@ $(PROGRAM).nro: $(PROGRAM).elf
 
 $(PROGRAM).elf:
 	@echo "Building elf"
-	@tinygo build -target nintendo-switch -o $(PROGRAM).elf
+	@tinygo build -target nintendo-switch -opt=2 -o $(PROGRAM).elf
