@@ -12,10 +12,8 @@ clean:
 
 $(PROGRAM).nro: $(PROGRAM).elf
 	@echo "Building nro"
-	@linkle nro $(PROGRAM).elf $(PROGRAM).nro --icon-path=../../go-switch.jpg --nacp-path=$(OUTPUT)/nacp.json
-	@echo NRO at $(PROGRAM).nro
+	@linkle nro $(PROGRAM).elf $(PROGRAM).nro --icon-path=../go-switch.jpg --nacp-path=$(OUTPUT)/nacp.json
 
 $(PROGRAM).elf:
 	@echo "Building elf"
-	@tinygo build -target nintendo-switch -opt=2 -o $(PROGRAM).elf
-	@echo "ELF at $(PROGRAM).elf"
+	@tinygo build -target nintendoswitch -opt=1 -o $(PROGRAM).elf

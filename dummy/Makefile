@@ -12,7 +12,7 @@ clean:
 
 $(PROGRAM).nro: $(PROGRAM).elf
 	@echo "Building nro"
-	@linkle nro $(PROGRAM).elf $(PROGRAM).nro --icon-path=../../../go-switch.jpg --nacp-path=$(OUTPUT)/nacp.json
+	@linkle nro $(PROGRAM).elf $(PROGRAM).nro --icon-path=../go-switch.jpg --nacp-path=$(OUTPUT)/nacp.json
 
 $(PROGRAM).elf:
 	@echo "Building elf"
